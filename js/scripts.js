@@ -125,6 +125,30 @@ function sumaCantidad(e){
     }
   })
 }
+function botonCheckout() {
+  let botonCheckout = document.getElementById("comprar");
+  if (botonCheckout.className == "btn btn-success eliminar") {
+    botonCheckout.className = "btn btn-outline-success";
+  } else {
+    botonCheckout.className = "btn btn-success eliminar";
+  }
+}
+
+let intervalo = setInterval(botonCheckout, 1500);
+
+function proximamente() {
+  Swal.fire({
+    text: "Su orden de compra fue exitosa ⚡",
+    icon: "success",
+    background: "black",
+    confirmButtonColor: "rgb(16, 56, 40)",
+    color: "white",
+  });
+}
+
+let checkout = document.getElementById("comprar");
+checkout.addEventListener("click", proximamente);
+
 
 function addLocalStorage(){
   localStorage.setItem('carrito', JSON.stringify(carrito))
